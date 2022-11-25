@@ -17,7 +17,7 @@ Veamos el primer ejemplo `wsgi1.py`:
 	    respuesta = "<p>Página web construida con <strong>Python!!!</strong></p>"
 	    # Se genera una respuesta al navegador 
 	    start_response('200 OK', [('Content-Type', 'text/html; charset=utf-8')])
-	    return respuesta	
+	    return [respuesta.encode()]	
 
 	if __name__ == '__main__':
 	    from wsgiref.simple_server import make_server
@@ -55,7 +55,7 @@ De esta forma podemos hacer un controlador (fichero `wsgi2.py`) de la siguiente 
 	    else:
 	        respuesta = "<p><trong>Página incorrecta</strong></p>"
 	    start_response('200 OK', [('Content-Type', 'text/html; charset=utf-8')])
-	    return respuesta	
+	    return [respuesta.encode()]	
 
 	if __name__ == '__main__':
 	    from wsgiref.simple_server import make_server
@@ -77,7 +77,7 @@ En este último ejemplo (fichero `wsgi3.py`) vamos a ver cómo podemos trabajar 
 	    else:
 	        respuesta = "<p><trong>Página incorrecta</strong></p>"
 	    start_response('200 OK', [('Content-Type', 'text/html; charset=utf-8')])
-	    return respuesta	
+	    return [respuesta.encode()]	
 
 	if __name__ == '__main__':
 	    from wsgiref.simple_server import make_server
