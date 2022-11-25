@@ -4,7 +4,7 @@ def application(environ, start_response):
     respuesta = "<p>Página web construida con <strong>Python!!!</strong></p>"
     # Se genera una respuesta al navegador
     start_response('200 OK', [('Content-Type', 'text/html; charset=utf-8')])
-    return respuesta
+    return [respuesta.encode()] #corrección Python 3
 
 if __name__ == '__main__':
     from wsgiref.simple_server import make_server
